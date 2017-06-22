@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}My projects{% endblock %}
+
+{% block content %}
+{% if projects.count > 0 %}
+{% for project in projects%}
+
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+<style>
+div.solid {
+border-top:  2px #28a4c9 solid;
+border-left: 2px #28a4c9 solid;
+border-right: 2px #28a4c9 solid;
+border-bottom: 2px #28a4c9 solid;
+background-color: white;
+padding: 10px;}
+
+body {
+    background-image: url(https://www.textures.com/system/categories/2375/frontend-large.jpg);
+}
+</style>
+
+
+
+
+<div class="container" >
+
+  <div class="solid">
+      <div style="background-color:#1b6d85"> <h2 style="color:white">MY PROJECTS</h2> </div>
+  </div>
+<br>
+<div class = "solid">
+  <a href="/posts/project/{{project.id}}/">PROJECT NAME: {{ project.projectname }}</a></h1>
+  <p>RESUME: {{ project.description |truncatewords:"200"}}</p>
+</div>
+<br>
+
+
+{% endfor %}
+{% else %}
+<p>You don't have any projects</p>
+{% endif %}
+<input type="button" onclick=" location.href='/posts/home' " value="Go Back" name="boton" class="btn btn-success boton"/>
+
+</div>
+{% endblock %}

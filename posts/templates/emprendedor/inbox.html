@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}My messages{% endblock %}
+
+{% block content %}
+{% if messages.count > 0 %}
+{% for message in messages%}
+<div>
+  <a href="/posts/answer/{{message.id}}/">{{ message.title }}</a></h1>
+  <p>{{ message.message |truncatewords:"10"}}</p>
+</div>
+{% endfor %}
+{% else %}
+<p>You don't have any messages</p>
+{% endif %}
+<a href="/posts/home/">Return</a>
+{% endblock %}

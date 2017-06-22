@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Project {{ project.projectname }}{% endblock %}
+{% block head %}Project {{ project.projectname }}{% endblock %}
+{% block content %}
+<div>
+  <p>Description: {{ project.description }}</p>
+  <p>Value: $ {{ project.value }}</p>
+  {% if project.user.id == user.id %}
+  {% else %}
+  <a href="/posts/message/{{project.id}}/">Send Message</a>
+  {% endif %}
+</div>
+<a href="/posts/show/">My projects</a>
+<a href="/posts/home/">Home</a>
+{% endblock %}

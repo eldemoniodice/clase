@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Answer Message{% endblock %}
+{% block head %}Answer Message{% endblock %}
+{% block content %}
+<div>
+  <form method="post" action=".">{% csrf_token %}
+    <p>Project: {{ message.project.projectname }}</p>
+    <p>Backer: {{ message.sender.username }}</p>
+      <table border="0">
+          {{ form.as_table }}
+      </table>
+      <input type="submit" value="Send" />
+  </form>
+</div>
+<a href="/posts/home/">Home</a>
+{% endblock %}
